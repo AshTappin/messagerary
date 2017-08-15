@@ -4,7 +4,7 @@
   "description": "A simple webservice/ message library where you can store and access messages ",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "jasmine-node --captureExceptions ./"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/AshTappin/messagerary/issues"
   },
-  "homepage": "https://github.com/AshTappin/messagerary#readme"
+  "homepage": "https://github.com/AshTappin/messagerary#readme",
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  },
+  "dependencies": {
+    "request": "^2.81.0"
+  }
 }
