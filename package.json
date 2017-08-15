@@ -1,0 +1,19 @@
+{
+  "name": "messagerary",
+  "version": "1.0.0",
+  "description": "A simple webservice/ message library where you can store and access messages ",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AshTappin/messagerary.git"
+  },
+  "author": "Ash Tappin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AshTappin/messagerary/issues"
+  },
+  "homepage": "https://github.com/AshTappin/messagerary#readme"
+}
