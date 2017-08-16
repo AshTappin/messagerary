@@ -1,5 +1,7 @@
 const express = require('express');
 const loki	 = require('lokijs');
+const routes = require('./config/routes.js');
+
 const db = new loki("Messagerary")
 const messages = db.addCollection('messages');
 
@@ -10,6 +12,10 @@ var message = messages.find({message: "HeyHey"});
 var app = express();
 
 app.set('port', process.env.PORT || 3000);
+routes.setupRoutes(app);
 
 var server = app.listen(app.get('port'), function() {
 	console.log(`Server up: http://localhost:${app.get('port')}`);
+});
+
+module.exports=app; 
