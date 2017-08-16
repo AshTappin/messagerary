@@ -8,11 +8,11 @@ describe("Messagerary Service", function() {
 
 			 request.post({
 			 	url:     `${baseUrl}/messages/`,
-  	 			data:    "T o p  S e c r e t  M e s s a g e"
+  	 			body:    "T o p  S e c r e t  M e s s a g e",
+	 			headers: {'Content-Type': 'text/plain'}
 			 }, function(error, response, body) {
 			 	expect(response.statusCode).toEqual(200);
-
-
+			 	console.dir(body);
 			  	const messageId = body.id;
 
 			  	request.get(`${baseUrl}/messages/${messageId}`, function(error, response, body) {
