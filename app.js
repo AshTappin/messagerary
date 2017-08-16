@@ -1,21 +1,17 @@
 const express = require('express');
-const loki	 = require('lokijs');
 const routes = require('./config/routes.js');
+const bodyParser = require('body-parser');
 
-const db = new loki("Messagerary")
-const messages = db.addCollection('messages');
+startUpServer();
 
-messages.insert({message: "HeyHey"});
+function startUpServer() {
+	var app = express();
+	app.set('port', process.env.PORT || 3000);
+	app.use(bodyParser.text({type: "*/*"}));
+	routes.setupRoutes(app);
 
-var message = messages.find({message: "HeyHey"});
-
-var app = express();
-
-app.set('port', process.env.PORT || 3000);
-routes.setupRoutes(app);
-
-var server = app.listen(app.get('port'), function() {
+	const server = app.listen(app.get('port'), function() {
 	console.log(`Server up: http://localhost:${app.get('port')}`);
-});
+	});
 
-module.exports=app; 
+} 

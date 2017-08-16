@@ -8,7 +8,7 @@ describe("Messagerary Service", function() {
 
 			 request.post({
 			 	url:     `${baseUrl}/messages/`,
-  	 			form:    { mes: "T o p  S e c r e t  M e s s a g e" }
+  	 			data:    "T o p  S e c r e t  M e s s a g e"
 			 }, function(error, response, body) {
 			 	expect(response.statusCode).toEqual(200);
 
