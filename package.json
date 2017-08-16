@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "express": "^4.15.4",
-    "mongoose": "^4.11.7",
+    "lokijs": "^1.5.0",
     "request": "^2.81.0"
   }
 }
