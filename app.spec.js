@@ -1,4 +1,5 @@
 const request = require("request");
+const app = require("./app.js")
 
 
 describe("Messagerary Service", function() {
@@ -18,6 +19,7 @@ describe("Messagerary Service", function() {
 			  	request.get(`${baseUrl}/messages/${messageId}`, function(error, response, body) {
 			  		expect(response.statusCode).toEqual(200);
 				  	expect(body).toBe("T o p  S e c r e t  M e s s a g e")
+				  	app.stopServer();
 			 		done();
 				 });
 			 	
