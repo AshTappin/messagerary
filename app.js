@@ -13,7 +13,7 @@ function startUpServer() {
 	routes.setupRoutes(app);
 
 	server = app.listen(app.get('port'), function() {
-	console.log(`Server up  on http://localhost:${app.get('port')}`);
+	console.log(`Server up on http://localhost:${app.get('port')}`);
 	});
 } 
 

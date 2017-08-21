@@ -18,9 +18,7 @@ describe("Messagerary Service", function() {
 
 		it("returns a not found error if message does not exist",(done) => {
 			requestPromise({url: `${baseUrl}/messages/-1`, simple: false})
-				.then((response) => {
-					expect(response).toBe("Message with ID [-1] was not found");
-				})
+				.then((response) => expect(response).toBe("Message with ID [-1] was not found"))
 				.then(() => done());
 
 		})
@@ -29,7 +27,7 @@ describe("Messagerary Service", function() {
 			postMessage("Hello there!")
 				.then((response) => getMessage(`${response.id}ERE`))
 				.then((response) => {
-					expect(response).toBe("ID needs to be a number");
+					expect(response).toBe("Message ID needs to be a number");
 				})
 				.then(() => stopServer(done));
 

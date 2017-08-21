@@ -1,4 +1,4 @@
-const idValidator = require("./idFormatValidator.js");
+const idValidator = require("./idValidator.js");
 
 describe("ID validator", function() {
 	it("Returns false if ID contains letters", () => expect(idValidator.isANumber("43ERR")).toBe(false)); 
