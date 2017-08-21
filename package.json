@@ -4,7 +4,7 @@
   "description": "A simple webservice/ message library where you can store and access messages ",
   "main": "app.js",
   "scripts": {
-    "test": "jasmine-node --captureExceptions ./"
+    "test": "find . ! -path \"*node_modules*\" -name \"*.spec.js\"| xargs jasmine-node --captureExceptions"
   },
   "repository": {
     "type": "git",
