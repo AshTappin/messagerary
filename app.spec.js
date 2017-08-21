@@ -18,17 +18,17 @@ describe("Messagerary Service", function() {
 
 		it("returns a not found error if message does not exist",(done) => {
 			requestPromise({url: `${baseUrl}/messages/-1`, simple: false})
-				.then((response) => expect(response).toBe("Message with ID [-1] was not found"))
+				.then((response) => JSON.parse(response).error)
+				.then(checkMessageReturnedIs("Message with ID [-1] was not found"))
 				.then(() => done());
 
 		})
 
-		it("does not find message with number in ID",(done) => {
-			postMessage("Hello there!")
+		it("returns error if ID contains letters",(done) => {
+			postMessage("Message to store!")
 				.then((response) => getMessage(`${response.id}ERE`))
-				.then((response) => {
-					expect(response).toBe("Message ID needs to be a number");
-				})
+				.then((response) => JSON.parse(response).error)
+				.then(checkMessageReturnedIs("Message ID needs to be a number"))
 				.then(() => stopServer(done));
 
 		})

@@ -17,12 +17,12 @@ module.exports = {
 		console.log(`Getting message with ID [${messageId}]...`)
 
 		!idValidator.isANumber(messageId)
-			? res.status(400).send(`Message ID needs to be a number`)
+			? res.status(400).send({error:`Message ID needs to be a number`})
 			: getMessageFromDb();
 
 		function getMessageFromDb() {
 			const messageRecord = messages.get(parseInt(messageId));
-			messageRecord ? res.send(messageRecord.message) : res.status(404).send(`Message with ID [${messageId}] was not found`);	
+			messageRecord ? res.send(messageRecord.message) : res.status(404).send({error: `Message with ID [${messageId}] was not found`});	
 		}
 	}
 
