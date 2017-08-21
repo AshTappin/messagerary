@@ -2,6 +2,7 @@ const express = require('express');
 const routes = require('./config/routes.js');
 const bodyParser = require('body-parser');
 var server;
+
 startUpServer();
 
 function startUpServer() {
@@ -12,7 +13,7 @@ function startUpServer() {
 	routes.setupRoutes(app);
 
 	server = app.listen(app.get('port'), function() {
-	console.log(`Server up: http://localhost:${app.get('port')}`);
+	console.log(`Server up  on http://localhost:${app.get('port')}`);
 	});
 
 } 
